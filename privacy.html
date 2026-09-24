@@ -30,7 +30,7 @@
 
 <h2>在您手機本機處理的資料</h2>
 <ul>
-  <li><strong>語音</strong>：麥克風收到的聲音即時在手機上辨識成文字，聲音本身不會被儲存、也不會上傳。辨識全程離線（使用下載到手機的離線模型時）。iPhone 版在離線模型還沒下載好、或您選擇使用 iPhone 內建辨識時，會用蘋果手機內建的語音辨識；本 App 已設定只在手機內辨識，聲音不會傳給蘋果。</li>
+  <li><strong>語音</strong>：麥克風收到的聲音即時在手機上辨識成文字，聲音本身不會被儲存、也不會上傳。使用下載到手機的 App 離線模型時，辨識全程離線。iPhone 版也會用蘋果手機內建的語音辨識：1.5 版起在 iOS 26 以上預設使用「iPhone 內建辨識」；iOS 17、18 則在離線模型還沒下載好、或您選擇時使用。兩者都只在手機內辨識，聲音不會傳給蘋果。</li>
   <li><strong>對話紀錄</strong>：辨識出的字幕文字保存在手機本機，保留 30 天後自動刪除；您也可以隨時在 App 內逐句刪除。</li>
   <li><strong>聲紋</strong>（選用功能）：若您啟用「字幕差異化」，App 會將您唸的 3 句話轉成聲音特徵數值（不保存錄音本身），只存在手機本機，用於分辨字幕是不是您自己說的話；可隨時在 App 內刪除。</li>
   <li><strong>常用詞與改字紀錄</strong>：您新增的詞彙與修正，只存在手機本機。</li>
@@ -40,15 +40,19 @@
 <h2>意見回饋信</h2>
 <p>您在 App 內按「意見回饋」寫信給我們時，信中會先帶入 App 版本、手機型號與系統版本，方便我們了解問題。寄出前您可以刪掉這些內容；我們只用這些資訊回覆您。</p>
 
-<h2>網路的唯一用途</h2>
-<p>本 App 只在「下載離線辨識模型」時連線（來源為 Hugging Face 與 GitHub 的公開檔案）。連線時這些網站會如同一般網頁瀏覽看到您的 IP 位址；本 App 不會在連線中夾帶任何個人資料。模型下載完成後，字幕功能完全不需要網路。</p>
+<h2>網路只用來下載辨識模型</h2>
+<ul>
+  <li><strong>App 離線模型</strong>：由本 App 從 Hugging Face 與 GitHub 的公開檔案下載。連線時這些網站會如同一般網頁瀏覽看到您的 IP 位址；本 App 不會在連線中夾帶任何個人資料。</li>
+  <li><strong>iPhone 內建辨識</strong>（iPhone 版 1.5 起，iOS 26 以上）：您在 App 裡安裝某個語言時，由 iOS 系統向蘋果下載該語言的語音模型，就像在 iPhone 設定裡加入聽寫語言。這次連線由蘋果依其隱私權政策處理；下載的只有模型，您的聲音與對話內容不會傳出去。</li>
+</ul>
+<p>模型下載完成後，字幕功能完全不需要網路。</p>
 
 <h2>App 權限</h2>
 <ul>
   <li><strong>麥克風</strong>：把說話聲變成字幕、耳機擴音、聲紋設定。</li>
-  <li><strong>語音辨識</strong>（iPhone 版）：只在手機內辨識，用於離線模型下載完成前，或您選擇 iPhone 內建辨識時。</li>
+  <li><strong>語音辨識</strong>（iPhone 版）：使用蘋果手機內建的語音辨識時，只在手機內辨識。</li>
   <li><strong>通知</strong>：Android 版用來顯示「聆聽進行中」的狀態通知；iPhone 版只用來告訴您 App 已因太久沒聽到說話聲而自動停止。</li>
-  <li><strong>網路</strong>：僅供下載離線模型。</li>
+  <li><strong>網路</strong>：僅供下載辨識模型。</li>
 </ul>
 
 <h2>兒童</h2>
@@ -69,7 +73,7 @@
 
 <h2>Data processed on your device only</h2>
 <ul>
-  <li><strong>Audio</strong>: sound from the microphone is transcribed on the device in real time. The audio itself is never stored or uploaded. Recognition runs fully offline once an offline model is installed. On iPhone, before the offline model is downloaded or if you choose iPhone’s built-in recognition, the app uses Apple’s speech recognition in on-device-only mode, so your audio is never sent to Apple.</li>
+  <li><strong>Audio</strong>: sound from the microphone is transcribed on the device in real time. The audio itself is never stored or uploaded. With the app’s offline models, recognition runs fully offline. On iPhone the app also uses Apple’s built-in speech recognition: from version 1.5 on iOS 26 and later it is the default (“iPhone speech recognition”); on iOS 17 and 18 it is used before the offline model is downloaded or when you choose it. Both run on the device only, so your audio is never sent to Apple.</li>
   <li><strong>Conversation history</strong>: caption text is stored locally, kept for 30 days and then deleted automatically; you can also delete any line in the app at any time.</li>
   <li><strong>Voiceprint</strong> (optional): if you enable “Caption differentiation”, the app converts three spoken sentences into numeric voice features (the recordings themselves are not kept), stored locally and used only to tell your own speech apart. You can delete it in the app at any time.</li>
   <li><strong>My words and corrections</strong>: stored locally only.</li>
@@ -79,15 +83,19 @@
 <h2>Feedback emails</h2>
 <p>When you tap “Send feedback” in the app, the email is pre-filled with the app version, your phone model and its system version to help us understand the problem. You can delete these before sending; we use them only to reply to you.</p>
 
-<h2>The only use of the network</h2>
-<p>The app connects to the internet only to download offline recognition models (public files on Hugging Face and GitHub). Those sites see your IP address as with any web download; the app attaches no personal data. Once models are downloaded, captions work entirely without a connection.</p>
+<h2>The network is used only to download recognition models</h2>
+<ul>
+  <li><strong>The app’s offline models</strong>: downloaded by the app from public files on Hugging Face and GitHub. Those sites see your IP address as with any web download; the app attaches no personal data.</li>
+  <li><strong>iPhone speech recognition</strong> (iPhone version 1.5 and later, on iOS 26 and later): when you install a language in the app, iOS downloads that language’s speech model from Apple, much like adding a dictation language in iPhone Settings. That connection is handled by Apple under its privacy policy; only the model is downloaded, and your voice and conversations are never sent.</li>
+</ul>
+<p>Once models are downloaded, captions work entirely without a connection.</p>
 
 <h2>App permissions</h2>
 <ul>
   <li><strong>Microphone</strong>: captions, headphone amplification, and voiceprint setup.</li>
-  <li><strong>Speech recognition</strong> (iPhone): on-device only, used before the offline model is downloaded or when you choose iPhone’s built-in recognition.</li>
+  <li><strong>Speech recognition</strong> (iPhone): on-device only, whenever Apple’s built-in speech recognition is used.</li>
   <li><strong>Notifications</strong>: on Android, the “listening” status notification; on iPhone, only to tell you the app stopped automatically after hearing no speech for a while.</li>
-  <li><strong>Internet</strong>: model downloads only.</li>
+  <li><strong>Internet</strong>: recognition model downloads only.</li>
 </ul>
 
 <h2>Children</h2>
